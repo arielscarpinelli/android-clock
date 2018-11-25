@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun applyTheme() {
-        setTheme(if (nightTheme) R.style.DayTheme else R.style.NightTheme)
+        setTheme(if (nightTheme) R.style.NightTheme else R.style.DayTheme)
     }
 
     private fun shouldUpdateTheme(now: Date): Boolean {
