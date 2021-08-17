@@ -2,13 +2,17 @@ package com.negochat.androidclock
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import okhttp3.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
 
 data class Weather(val current: Float, val min: Float, val max: Float)
 
 class WeatherApi(val appId:String) {
-    private val client = OkHttpClient()
+
+    private val client = OkHttpClientFactory.getUnsafeOkHttpClient()
     private val objectMapper = jacksonObjectMapper()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
